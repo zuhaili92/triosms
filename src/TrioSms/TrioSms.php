@@ -59,9 +59,11 @@ class TrioSms
     public function balance($mode = self::MODE_SHORT)
     {
         $response = $this->client->createRequest('GET', $this->getUrl(), [
-            'api_key' => $this->token,
-            'action' => 'bal_check',
-            'mode' => $mode,
+            'query' => [
+                'api_key' => $this->token,
+                'action' => 'bal_check',
+                'mode' => $mode,
+            ]
         ]);
 
         return $response->getBody();
@@ -70,13 +72,15 @@ class TrioSms
     public function send($recipient, $message, $mode = self::MODE_SHORT, $format = self::FORMAT_ASCII)
     {
         $response = $this->client->createRequest('GET', $this->getUrl(), [
-            'api_key' => $this->token,
-            'action' => 'send',
-            'to' => $recipient,
-            'msg' => $message,
-            'sender_id' => $this->sender,
-            'content_type' => $format,
-            'mode' => $mode,
+            'query' => [
+                'api_key' => $this->token,
+                'action' => 'send',
+                'to' => $recipient,
+                'msg' => $message,
+                'sender_id' => $this->sender,
+                'content_type' => $format,
+                'mode' => $mode,
+            ]
         ]);
 
         return $response->getBody();
