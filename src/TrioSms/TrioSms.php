@@ -1,6 +1,7 @@
 <?php namespace i906\TrioSms;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class TrioSms
 {
@@ -58,30 +59,38 @@ class TrioSms
 
     public function balance($mode = self::MODE_SHORT)
     {
-        $response = $this->client->createRequest('GET', $this->getUrl(), [
-            'query' => [
-                'api_key' => $this->token,
-                'action' => 'bal_check',
-                'mode' => $mode,
-            ]
-        ]);
+        try {
+            $response = $this->client->get($this->getUrl(), [
+                'query' => [
+                    'api_key' => $this->token,
+                    'action' => 'bal_check',
+                    'mode' => $mode,
+                ]
+            ]);
+        } catch (RequestException $e) {
+            return false;
+        }
 
         return $response->getBody();
     }
 
     public function send($recipient, $message, $mode = self::MODE_SHORT, $format = self::FORMAT_ASCII)
     {
-        $response = $this->client->createRequest('GET', $this->getUrl(), [
-            'query' => [
-                'api_key' => $this->token,
-                'action' => 'send',
-                'to' => $recipient,
-                'msg' => $message,
-                'sender_id' => $this->sender,
-                'content_type' => $format,
-                'mode' => $mode,
-            ]
-        ]);
+        try {
+            $response = $this->client->get($this->getUrl(), [
+                'query' => [
+                    'api_key' => $this->token,
+                    'action' => 'send',
+                    'to' => $recipient,
+                    'msg' => $message,
+                    'sender_id' => $this->sender,
+                    'content_type' => $format,
+                    'mode' => $mode,
+                ]
+            ]);
+        } catch (RequestException $e) {
+            return false;
+        }
 
         return $response->getBody();
     }
