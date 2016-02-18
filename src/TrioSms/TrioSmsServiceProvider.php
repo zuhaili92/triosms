@@ -8,7 +8,7 @@ class TrioSmsServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/courier.php' => \config_path('triosms.php'),
+            __DIR__ . '/../config/triosms.php' => config_path('triosms.php'),
         ], 'config');
     }
 
@@ -19,7 +19,7 @@ class TrioSmsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(TrioSms::class, function ($app) {
+        $this->app->bind('i906\TrioSms\TrioSms', function ($app) {
             $c = $app['config'];
 
             $url = $c->get('triosms.url');

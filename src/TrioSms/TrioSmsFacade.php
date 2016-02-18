@@ -6,6 +6,6 @@ class TrioSmsFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return TrioSms::class;
+        return 'i906\TrioSms\TrioSms';
     }
 }
