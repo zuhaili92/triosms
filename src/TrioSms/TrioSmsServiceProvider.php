@@ -2,7 +2,7 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class TrioSmsServiceProvide extends ServiceProvider
+class TrioSmsServiceProvider extends ServiceProvider
 {
 
     public function boot()
