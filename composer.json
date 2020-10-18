@@ -1,7 +1,7 @@
 {
-  "name": "i906/triosms",
+  "name": "zuhaili92/triosms",
   "description": "Send SMS in Laravel 5 using API from trio-mobile.com",
-  "homepage": "https://github.com/i906/triosms",
+  "homepage": "https://github.com/zuhaili92/triosms",
   "keywords": [
     "laravel",
     "sms",
@@ -11,19 +11,19 @@
   "type": "library",
   "author": [
     {
-      "name": "Noorzaini Ilhami",
-      "email": "ilhami@i906.my",
+      "name": "Zuhaili",
+      "email": "zuhaili.xperia@gmail.com",
       "role": "Developer"
     }
   ],
   "require": {
-    "php": ">=5.5.0",
-    "illuminate/support": "~5.0",
-    "guzzlehttp/guzzle": "~6.0"
+    "php": ">=7.2.5",
+    "illuminate/support": "^7.0",
+    "guzzlehttp/guzzle": "^6.3"
   },
   "autoload": {
     "psr-4": {
-      "i906\\TrioSms\\": "src/TrioSms/"
+      "zuhaili92\\TrioSms\\": "src/TrioSms/"
     }
   }
 }

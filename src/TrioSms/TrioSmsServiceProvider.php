@@ -1,4 +1,4 @@
-<?php namespace i906\TrioSms;
+<?php namespace zuhaili92\TrioSms;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -19,7 +19,7 @@ class TrioSmsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('i906\TrioSms\TrioSms', function ($app) {
+        $this->app->bind('zuhaili92\TrioSms\TrioSms', function ($app) {
             $c = $app['config'];
 
             $url = $c->get('triosms.url');

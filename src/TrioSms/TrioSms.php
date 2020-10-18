@@ -1,4 +1,4 @@
-<?php namespace i906\TrioSms;
+<?php namespace zuhaili92\TrioSms;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
